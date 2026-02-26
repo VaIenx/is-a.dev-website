@@ -3,19 +3,154 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mein Entwickler Portfolio</title>
+    <title>Über Mich | Portfolio</title>
     <style>
-        body { font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f0f2f5; margin: 0; }
-        .card { background: white; padding: 2rem; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.1); text-align: center; }
-        h1 { color: #333; }
-        p { color: #666; }
+        :root {
+            --bg: #0f172a;
+            --text: #f8fafc;
+            --accent: #38bdf8;
+            --card-bg: #1e293b;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 800px;
+            width: 90%;
+            padding: 2rem;
+            background: var(--card-bg);
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+            margin: 2rem 0;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            color: var(--accent);
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .social-links a {
+            color: var(--text);
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+            border: 1px solid var(--accent);
+            border-radius: 8px;
+        }
+
+        .social-links a:hover {
+            background: var(--accent);
+            color: var(--bg);
+        }
+
+        section {
+            margin-bottom: 2rem;
+        }
+
+        h2 {
+            border-bottom: 2px solid var(--accent);
+            display: inline-block;
+            margin-bottom: 1rem;
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+
+        .card {
+            background: rgba(255,255,255,0.05);
+            padding: 1rem;
+            border-radius: 10px;
+        }
+
+        footer {
+            text-align: center;
+            font-size: 0.8rem;
+            opacity: 0.6;
+        }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>Hallo, ich bin [Dein Name] 👋</h1>
-        <p>Willkommen auf meiner zukünftigen .dev Website!</p>
-        <p>Gerade im Aufbau...</p>
-    </div>
+
+<div class="container">
+    <header>
+        <h1>Dein Name</h1>
+        <p>Software Entwickler | Kreativer Kopf | Kaffeeliebhaber</p>
+        
+        <div class="social-links">
+            <a href="https://github.com/DEIN_USER" target="_blank">GitHub</a>
+            <a href="mailto:deine@email.de">E-Mail</a>
+            <a href="https://discord.com/users/DEINE_ID" target="_blank">Discord</a>
+        </div>
+    </header>
+
+    <section id="about">
+        <h2>Über mich</h2>
+        <p>
+            Hallo! Ich bin ein leidenschaftlicher Entwickler aus [Deiner Stadt]. 
+            Ich liebe es, Probleme zu lösen und neue Technologien zu entdecken. 
+            Wenn ich nicht gerade code, findet man mich wahrscheinlich beim [Hobby] oder [Hobby].
+        </p>
+    </section>
+
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="grid">
+            <div class="card">
+                <h3>Frontend</h3>
+                <p>HTML, CSS, JavaScript, React</p>
+            </div>
+            <div class="card">
+                <h3>Backend</h3>
+                <p>Node.js, Python, SQL</p>
+            </div>
+            <div class="card">
+                <h3>Tools</h3>
+                <p>Git, Docker, VS Code</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="projects">
+        <h2>Projekte</h2>
+        <p>Hier sind einige Dinge, an denen ich gearbeitet habe:</p>
+        <ul>
+            <li><strong>Projekt Name</strong> - Kurze Beschreibung des Projekts.</li>
+            <li><strong>Zweites Projekt</strong> - Noch eine coole Sache, die du gemacht hast.</li>
+        </ul>
+    </section>
+
+    <footer>
+        &copy; 2026 Dein Name. Erstellt mit Leidenschaft.
+    </footer>
+</div>
+
 </body>
 </html>

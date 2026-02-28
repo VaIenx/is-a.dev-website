@@ -1,145 +1,111 @@
-<!DOCTYPE html>
-<html lang="de">
+﻿<!DOCTYPE html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Über Mich | Portfolio</title>
-    <style>
-        :root {
-            --bg: #0f172a;
-            --text: #f8fafc;
-            --accent: #38bdf8;
-            --card-bg: #1e293b;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-        }
-
-        .container {
-            max-width: 800px;
-            width: 90%;
-            padding: 2rem;
-            background: var(--card-bg);
-            border-radius: 20px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.3);
-            margin: 2rem 0;
-        }
-
-        header {
-            text-align: center;
-            margin-bottom: 2rem;
-        }
-
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 0.5rem;
-            color: var(--accent);
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 1rem;
-        }
-
-        .social-links a {
-            color: var(--text);
-            text-decoration: none;
-            font-weight: bold;
-            transition: color 0.3s;
-            padding: 0.5rem 1rem;
-            border: 1px solid var(--accent);
-            border-radius: 8px;
-        }
-
-        .social-links a:hover {
-            background: var(--accent);
-            color: var(--bg);
-        }
-
-        section {
-            margin-bottom: 2rem;
-        }
-
-        h2 {
-            border-bottom: 2px solid var(--accent);
-            display: inline-block;
-            margin-bottom: 1rem;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 1rem;
-        }
-
-        .card {
-            background: rgba(255,255,255,0.05);
-            padding: 1rem;
-            border-radius: 10px;
-        }
-
-        footer {
-            text-align: center;
-            font-size: 0.8rem;
-            opacity: 0.6;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Valenx's Portfolio</title>
+  <link rel="stylesheet" href="stylesheet.css" />
 </head>
 <body>
+  <header>
+    <div class="logo">Valenx's Portfolio</div>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#skills">Skills</a>
+      <a href="#projects">Projects</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
 
-<div class="container">
-    <header>
-        <h1>Valenx</h1>
-        <p>Anfänger in Programmierung | Kreativer Kopf | Mateliebhaber</p>
-        
-        <div class="social-links">
-            <a href="https://github.com/VaIenx" target="_blank">GitHub</a>
-            <a href="https://discord.com/users/690135158459727920" target="_blank">Discord</a>
-        </div>
-    </header>
+  <section class="hero">
+    <h1>Hi, I am Valenx.</h1>
+    <p>I'm a beginner programmer who enjoys building projects I can learn from.</p>
+    <p>Professional Club-Mate enjoyer, and I'm trying to improve steadily.</p>
+  </section>
 
+  <main>
     <section id="about">
-        <h2>Über mich</h2>
-        <p>
-            Ich liebe es, Probleme zu lösen und neue Dinge zu lernen. Ich kann noch nicht allzu viel, aber ich lerne gern und schnell :)
-        </p>
+      <h2>About</h2>
+      <p>
+        I started in 2024. I like solving problems, learning new stuff, and sharing
+        what I learn along the way with friends.
+      </p>
+      <p>
+        Outside of coding, I enjoy playing the piano, and I am always curious about how things work.
+      </p>
     </section>
 
     <section id="skills">
-        <h2>Skills</h2>
-        <div class="grid">
-            <div class="card">
-                <h3>Frontend</h3>
-                <p>HTML, CSS, JavaScript</p>
-            </div>
-            <div class="card">
-                <h3>Backend</h3>
-                <p>Node.js, Python</p>
-            </div>
-            <div class="card">
-                <h3>Tools</h3>
-                <p>Git, Ubuntu Server, VS Code</p>
-            </div>
+      <h2>Skills</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Front-End</h3>
+          <p>HTML, CSS, JavaScript (learning right now)</p>
         </div>
+        <div class="card">
+          <h3>Back-End</h3>
+          <p>Python (Intermediate), C# (learning right now)</p>
+        </div>
+        <div class="card">
+          <h3>Tools</h3>
+          <p>Git, Linux (Ubuntu Server), VS Code, Unity</p>
+        </div>
+      </div>
     </section>
 
+    <section id="projects">
+      <h2>Projects</h2>
+      <div class="grid">
+        <div class="card">
+          <h3>Homeserver</h3>
+          <p>A simple homeserver with Stuff like Jellyfin, Immich, n'8'n, and Pi-hole</p>
+          <div class="taglist">
+            <span class="tag">Linux/Ubuntu</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Toxic Horizon</h3>
+          <p>A little game running in Python, Arcade. (im never using that piece of slow performance again)</p>
+          <div class="taglist">
+            <span class="tag">Python</span>
+            <span class="tag">Arcade</span>
+          </div>
+        </div>
 
-    <footer>
-        &copy; 2026 Valenx.
-    </footer>
-</div>
+        <div class="card">
+          <h3>Obsidian Plugin</h3>
+          <p>My first ever Plugin for Obsidian (Work in Progess)</p>
+          <div class="taglist">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Obsidian</span>
+         </div>
+        </div>
 
+        <div class="card">
+          <h3>Chess in Unity</h3>
+          <p>A little but beautiful Chess-Game using Unity (Work in Progess|With a friend)</p>
+          <div class="taglist">
+            <span class="tag">C#</span>
+            <span class="tag">Unity</span>
+         </div>
+        </div>
+
+
+      </div>
+    </section>
+
+    <section id="contact">
+      <h2>Contact</h2>
+      <p>Open to learning opportunities.</p>
+      <div class="social-links">
+        <a class="btn social-btn" href="https://github.com/VaIenx">GitHub</a>
+        <a class="btn social-btn" href="https://discord.com/users/690135158459727920">Discord</a>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    © 2026 Valenx.
+  </footer>
 </body>
 </html>

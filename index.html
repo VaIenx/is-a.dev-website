@@ -120,32 +120,38 @@
     const username = 'VaIenx';
     const loadingText = document.getElementById('loading-text');
     
+    // Sprachen, die du NICHT im Diagramm sehen willst (z.B. wegen Unity-Meta-Files)
+    const ignoreList = ['TeX', 'Shader Lab', 'CMake'];
+
     try {
-      // 1. Hol erst mal alle deine Repositories
+      // 1. Alle Repositories abrufen
       const reposResponse = await fetch(`https://api.github.com/users/${username}/repos?per_page=100`);
+      if (!reposResponse.ok) throw new Error('GitHub API Limit erreicht oder Nutzer nicht gefunden');
       const repos = await reposResponse.json();
 
       const langBytes = {};
 
-      // 2. Gehe durch JEDES Repo und hol die genaue Sprachen-Verteilung
-      // Wir erstellen eine Liste von Anfragen (Promises)
+      // 2. Sprachen-Details für jedes Repo parallel abrufen
       const langPromises = repos.map(repo => 
         fetch(repo.languages_url).then(res => res.json())
       );
 
-      // Warte, bis alle Daten da sind
       const allLangs = await Promise.all(langPromises);
 
-      // 3. Rechne alle Bytes zusammen
+      // 3. Bytes zusammenrechnen und Filter anwenden
       allLangs.forEach(languages => {
         for (const [lang, bytes] of Object.entries(languages)) {
-          langBytes[lang] = (langBytes[lang] || 0) + bytes;
+          // Nur hinzufügen, wenn die Sprache NICHT in der ignoreList steht
+          if (!ignoreList.includes(lang)) {
+            langBytes[lang] = (langBytes[lang] || 0) + bytes;
+          }
         }
       });
 
+      // Lade-Text ausblenden
       loadingText.style.display = 'none';
 
-      // 4. Diagramm zeichnen
+      // 4. Das Diagramm (Doughnut) erstellen
       const ctx = document.getElementById('languageChart').getContext('2d');
       new Chart(ctx, {
         type: 'doughnut',
@@ -154,7 +160,13 @@
           datasets: [{
             data: Object.values(langBytes),
             backgroundColor: [
-              '#FF6384', '#36A2EB', '#FFCE56', '#4BC0C0', '#9966FF', '#4BC0C0', '#F77825'
+              '#36A2EB', // Blau
+              '#FF6384', // Rosa
+              '#FFCE56', // Gelb
+              '#4BC0C0', // Türkis
+              '#9966FF', // Lila
+              '#F77825', // Orange
+              '#C9CBCF'  // Grau
             ],
             borderWidth: 2,
             borderColor: '#ffffff'
@@ -162,8 +174,15 @@
         },
         options: {
           responsive: true,
+          maintainAspectRatio: false,
           plugins: {
-            legend: { position: 'bottom' },
+            legend: {
+              position: 'bottom',
+              labels: {
+                padding: 20,
+                font: { size: 12 }
+              }
+            },
             tooltip: {
               callbacks: {
                 label: function(context) {
@@ -177,11 +196,12 @@
         }
       });
     } catch (error) {
-      loadingText.innerText = "Fehler beim Laden der detaillierten Stats.";
+      loadingText.innerText = "Fehler beim Laden der GitHub-Statistiken.";
       console.error(error);
     }
   }
 
+  // Skript beim Laden der Seite ausführen
   loadDetailedGitHubStats();
 </script>
 </body>
